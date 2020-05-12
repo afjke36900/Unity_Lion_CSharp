@@ -433,6 +433,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 147456424}
+  name1: KID
+  name2: "50\u5927\u5927"
+  name3: "\u4EAE\u4EAE\u5927\u5927"
+  names: []
 --- !u!4 &1975107275
 Transform:
   m_ObjectHideFlags: 0
