@@ -43,7 +43,7 @@ public class Class4_PropArrayEnum : MonoBehaviour
     public bool[] mission = {true, false, false};              // 宣告陣列並指定數量
     #endregion
 
-    // 喚醒事件 : Start 之前執行一次
+    // 喚醒事件 : Start 之前執行一次 
     private void Awake()
     {
         // 取得列舉

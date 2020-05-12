@@ -327,6 +327,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDoor: 0
   score: 0
+  hp: 100
+  prop: "\u7D05\u6C34"
+  season: 0
+  count: 0
+  complete: 0
+  test: 
+  cube: {fileID: 100000, guid: f044a37d78cf7b644b51493e41665e3e, type: 3}
+  scores: 6400000063000000580000004d0000004200000037000000
 --- !u!4 &1567422159
 Transform:
   m_ObjectHideFlags: 0
