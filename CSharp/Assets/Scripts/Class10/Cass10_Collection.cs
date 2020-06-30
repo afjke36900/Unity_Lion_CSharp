@@ -6,6 +6,7 @@ namespace Wei.Class10
 {
     public class Cass10_Collection : MonoBehaviour
     {
+        #region ArrayList、List
         // 陣列 : 一旦固定長度就不能改變
         public int[] scores = { 100, 90, 80, 70, 60 };
 
@@ -42,5 +43,108 @@ namespace Wei.Class10
             count.Sort();           // 由小到大
             count.Reverse();           // 反轉
         }
+        #endregion
+
+        #region 佇列與堆疊 Queue、Stack
+        // 佇列
+        // 1. 添加資料到尾端
+        // 例子 : 飲料店的隊伍
+        // 先來的人先點飲料
+        public Queue<int> lv = new Queue<int>();
+        
+        // 堆疊
+        // 2. 添加資料到頂端
+        // 先進後出
+        // 例子 : 堆放椅子
+        // 後面疊的椅子可以先拿
+        public Stack<int> n = new Stack<int>();
+
+        public Queue<string> people = new Queue<string>();
+        public Stack<string> box = new Stack<string>();
+
+        private void Awake()
+        {
+            lv.Enqueue(10);         // 添加佇列資料
+            lv.Enqueue(20);
+            lv.Enqueue(30);
+
+            foreach(var item in lv)
+            {
+                print("佇列的資料 : " + item);
+            }
+
+            n.Push(10);             // 添加堆疊資料
+            n.Push(20);
+            n.Push(30);
+
+            foreach (var item in n)
+            {
+                print("堆疊的資料 : " + item);
+            }
+
+            people.Enqueue("亮亮");
+            people.Enqueue("50");
+            people.Enqueue("KID");
+
+            box.Push("盒子1號");
+            box.Push("盒子2號");
+            box.Push("盒子3號");
+        }
+
+        private void Update()
+        {
+            // 佇列 先進先出
+            if (Input.GetKeyDown(KeyCode.Alpha1)) print("排隊的第一個人:" + people.Dequeue());
+
+            // 堆疊 先進後出
+            if (Input.GetKeyDown(KeyCode.Alpha2)) print("堆疊的第一個椅子:" + box.Pop());
+        }
+        #endregion
+
+        #region 雜湊表、字典
+        // 兩個關鍵字
+        // Key、Vaule - 關鍵字、值
+
+        // 差異
+        // 雜湊表 - 物件
+        // 字典 - 泛型
+        // 雜湊表
+        public Hashtable player = new Hashtable();
+        // 字典 - 關鍵字 (字串)，值 (整數)
+        public Dictionary<string, int> data = new Dictionary<string, int>();
+
+        // 物件啟動時執行事件
+        private void OnEnable()
+        {
+            player.Add("LV", 99);
+            player.Add("Hp", 9999);
+            player.Add("Mp", 500);
+            player.Add(true, true);  // ????
+
+            // DictionaryEntry 結構 - 儲存 key 與 Value
+            foreach(DictionaryEntry item in player)
+            {
+                print("雜湊表資料 KEY : " + item.Key);
+                print("雜湊表資料 VALUE : " + item.Value);
+            }
+
+            data.Add("短刀", 30);
+            data.Add("長刀", 300);
+            data.Add("屠龍刀", 30000);
+            // data.Add(true, true);  // 錯誤
+
+            foreach(KeyValuePair<string,int> item in data)
+            {
+                print("字典的 KEY:" + item.Key);
+                print("字典的 VALUE:" + item.Value);
+            }
+
+            // 用陣列或清單存取資料只能透過索引值 index - 0 1 2 3 4...
+            // 用雜湊表與字典可以使用 key 存取資料 - "屠龍刀"、"LV"
+            print("價格:" + data["屠龍刀"]);
+            print("等級:" + data["LV"]);
+        }
+
+        #endregion
     }
 }
